@@ -1,15 +1,19 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-export default function Counter() {
-  const [count, setCount] = useState(0);
+export default function MyInput() {
+    const [text, setText] = useState('hello world');
 
-  function handleClick() {
-    setCount(count + 1);
-  }
+    function handleClick(event) {
+        setText(event.target.value);
+    }
 
-  return (
-    <button onClick={handleClick}>
-      You pressed me {count} times.
-    </button>
-  );
+    return (
+        <>
+            <input value={text} onChange={handleClick} />    
+            <p>You typed: {text}</p>
+            <button onClick={() => setText('hello world')}>
+                Reset
+            </button>
+        </>
+    );
 }
