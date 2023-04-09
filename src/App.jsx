@@ -1,29 +1,15 @@
-function Item({ name, isPacked }) {
-    return (
-      <li className="item">
-        {name} {isPacked ? '✔' : '❌'}
-      </li>
-    );
+import { useState } from 'react';
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
   }
-  
-  export default function PackingList() {
-    return (
-      <section>
-        <h1>Sally Ride's Packing List</h1>
-        <ul>
-          <Item 
-            isPacked={true} 
-            name="Space suit" 
-          />
-          <Item 
-            isPacked={true} 
-            name="Helmet with a golden leaf" 
-          />
-          <Item 
-            isPacked={false} 
-            name="Photo of Tam" 
-          />
-        </ul>
-      </section>
-    );
-  }
+
+  return (
+    <button onClick={handleClick}>
+      You pressed me {count} times.
+    </button>
+  );
+}
