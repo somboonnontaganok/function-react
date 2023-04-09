@@ -1,19 +1,22 @@
 import { useState } from "react";
 
-export default function Form() {
-    const [name, setName] = useState('Poon');
+export default function Age() {
     const [age, setAge] = useState(58);
 
+    function handleClick() {
+        setAge(age + 1);
+    }
+
     return (
-        <>
-            <input
-                value={name}
-                onChange={e => setName(e.target.value)}
-            />
-            <button onClick={() => setAge(age + 1)}>
-                Increment age
+        <>  
+            <button onClick={handleClick}>
+                Increase Age
             </button>
-            <p>Hello, {name}. You are {age} years old.</p>
+            <p>You are {age} years old</p>
         </>
     )
 }
+  
+  
+
+  
