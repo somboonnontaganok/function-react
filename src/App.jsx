@@ -1,19 +1,23 @@
 import { useState } from "react";
 
-export default function MyInput() {
-    const [text, setText] = useState('hello world');
+export default function MyCheckbox() {
+    const [linked, setLinked] = useState(false);
 
-    function handleClick(event) {
-        setText(event.target.value);
+    function handleChange(e) {
+        setLinked(e.target.checked);
     }
 
     return (
         <>
-            <input value={text} onChange={handleClick} />    
-            <p>You typed: {text}</p>
-            <button onClick={() => setText('hello world')}>
-                Reset
-            </button>
+            <label>
+                <input 
+                type="checkbox"
+                checked={linked}
+                onChange={handleChange}
+                />
+                I like this
+            </label>
+            <p>You {linked ? 'liked' : 'did not like'} this.</p>
         </>
-    );
+    )
 }
