@@ -1,17 +1,29 @@
-import { useState } from 'react'
-
-function Welcome(props) {
-    return <p>Hello, {props.name}</p>;
+function Item({ name, isPacked }) {
+    return (
+      <li className="item">
+        {name} {isPacked ? '✔' : '❌'}
+      </li>
+    );
   }
-
-function App() {
-return (
-    <div>
-    <Welcome name="Sara" />
-    <Welcome name="Cahal" />
-    <Welcome name="Edite" />
-    </div>
-);
-}
-
-export default App
+  
+  export default function PackingList() {
+    return (
+      <section>
+        <h1>Sally Ride's Packing List</h1>
+        <ul>
+          <Item 
+            isPacked={true} 
+            name="Space suit" 
+          />
+          <Item 
+            isPacked={true} 
+            name="Helmet with a golden leaf" 
+          />
+          <Item 
+            isPacked={false} 
+            name="Photo of Tam" 
+          />
+        </ul>
+      </section>
+    );
+  }
