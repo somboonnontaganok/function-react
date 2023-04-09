@@ -1,23 +1,19 @@
 import { useState } from "react";
 
-export default function MyCheckbox() {
-    const [linked, setLinked] = useState(false);
-
-    function handleChange(e) {
-        setLinked(e.target.checked);
-    }
+export default function Form() {
+    const [name, setName] = useState('Poon');
+    const [age, setAge] = useState(58);
 
     return (
         <>
-            <label>
-                <input 
-                type="checkbox"
-                checked={linked}
-                onChange={handleChange}
-                />
-                I like this
-            </label>
-            <p>You {linked ? 'liked' : 'did not like'} this.</p>
+            <input
+                value={name}
+                onChange={e => setName(e.target.value)}
+            />
+            <button onClick={() => setAge(age + 1)}>
+                Increment age
+            </button>
+            <p>Hello, {name}. You are {age} years old.</p>
         </>
     )
 }
