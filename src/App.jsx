@@ -1,19 +1,42 @@
-import React, {useState} from "react";
+import { useState } from "react";
+// import ReactDOM from "react-dom/client";
 
-const ExLearning = () => {
-    const [change, setChange] = useState(true);
-    return (
-        <>
-            <button onClick={() => setChange(!change)}>
-                Click Me!
-            </button>
-            {
-                change ? 
-                <h1>Welcome to Poon Studio</h1> : 
-                <h1>A Computer Science Portal for Poon</h1>
-            }
-        </>
-    );
+const  App = () => {
+  const [color, setColor] = useState();
+  let DivElement = <div></div>
+
+  if( color == "yellow") {
+        DivElement = <div>{color}</div>;
+  }
+
+  else if (color == "blue") {
+        DivElement = <div>{color}</div>;
+  }
+
+  else if (color == "pink") {
+    DivElement = <div>{color}</div>;
+  }
+
+  return (
+    <>
+      <h3>{DivElement}</h3>  
+      <h1>My favorite color is {color}!</h1>
+      <button
+        type="button"
+        onClick={() => setColor("yellow")}
+      >Show Yellow</button>
+      <button
+        type="button"
+        onClick={() => setColor("blue")}
+      >Show Blue</button>
+      <button
+        type="button"
+        onClick={() => setColor("pink")}
+      >Show Pink</button>
+    </>
+  )
 }
 
-export default ExLearning;
+
+export default App;
+   
