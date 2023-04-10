@@ -1,24 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const App = () => {
-  const [rate, setRate] = useState(0);
-  const [exchange, setExchange] = useState(1);
+  const [count, setCount] = useState(0);
 
-  const syncRate = () => {
-    setRate(30);
-  };
+  const checkExceedCart = () => {
+    if (count > 5) {
+      alert("Item exceeded limit (5 item per cart).");
+    }
+  }
 
-  const handleExchangeChange = (event) => {
-    const newExchange = event.target.value;
-    setExchange(newExchange);
-  };
+  useEffect(checkExceedCart, [count]);
 
   return (
     <div>
-      <h1>Current Rate: {rate}</h1>
-      <button onClick={syncRate}>Sync Rate</button>
-      <input type="number" value={exchange} onChange={handleExchangeChange} />
-      <h2>Calculated Exchange: {exchange * rate}</h2>
+      <h5>You can only buy up to 5 items</h5>
+      <h1>Item in Carts: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
     </div>
   );
 };
