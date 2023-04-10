@@ -1,15 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 
-const Welcome = () => {
+const ExLearning = () => {
+    const [change, setChange] = useState(true);
     return (
-        <h1>Welcome to Poon studio</h1>
+        <>
+            <button onClick={() => setChange(!change)}>
+                Click Me!
+            </button>
+            {
+                change ? 
+                <h1>Welcome to Poon Studio</h1> : 
+                <h1>A Computer Science Portal for Poon</h1>
+            }
+        </>
     );
 }
 
-const functionWelcome = () => {
-    return (
-        <Welcome/>
-    );
-}
-
-export default functionWelcome;
+export default ExLearning;
