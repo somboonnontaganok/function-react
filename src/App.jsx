@@ -1,22 +1,15 @@
-import { useState } from "react";
+import React from "react";
 
-export default function Age() {
-    const [age, setAge] = useState(58);
-
-    function handleClick() {
-        setAge(age + 1);
-    }
-
+const Welcome = () => {
     return (
-        <>  
-            <button onClick={handleClick}>
-                Increase Age
-            </button>
-            <p>You are {age} years old</p>
-        </>
-    )
+        <h1>Welcome to Poon studio</h1>
+    );
 }
-  
-  
 
-  
+const functionWelcome = () => {
+    return (
+        <Welcome/>
+    );
+}
+
+export default functionWelcome;
