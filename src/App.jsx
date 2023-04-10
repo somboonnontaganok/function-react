@@ -1,42 +1,43 @@
-import { useState } from "react";
-// import ReactDOM from "react-dom/client";
+import React, { useState } from 'react';
 
-const  App = () => {
-  const [color, setColor] = useState();
-  let DivElement = <div></div>
+function App() {
+    // adding state here.
+    const [choices,setChoices] = useState();
 
-  if( color == "yellow") {
-        DivElement = <div>{color}</div>;
-  }
 
-  else if (color == "blue") {
-        DivElement = <div>{color}</div>;
-  }
+  const handleClick = (value) => {
+    // code here.
+    setChoices(value);
+  };
 
-  else if (color == "pink") {
-    DivElement = <div>{color}</div>;
+  return (
+    <div>
+      <button onClick={() => handleClick('Fullname')}>Fullname</button>
+      <button onClick={() => handleClick('Age')}>Age</button>
+      <button onClick={() => handleClick('Picture')}>Picture</button>
+      <DisplayInfo choices={choices} />
+    </div>
+  );
+}
+
+function DisplayInfo(props) {
+
+  let element;
+  if (props.choices === 'Fullname') {
+    element = <h2>John Doe</h2>;
+  } else if (props.choices === 'Age') {
+    element = <h2>30</h2>;
+  } else if (props.choices === 'Picture') {
+    element = <img src="https://via.placeholder.com/150" alt="Placeholder" />;
+  } else {
+    element = <p>Please select an option.</p>;
   }
 
   return (
-    <>
-      <h3>{DivElement}</h3>  
-      <h1>My favorite color is {color}!</h1>
-      <button
-        type="button"
-        onClick={() => setColor("yellow")}
-      >Show Yellow</button>
-      <button
-        type="button"
-        onClick={() => setColor("blue")}
-      >Show Blue</button>
-      <button
-        type="button"
-        onClick={() => setColor("pink")}
-      >Show Pink</button>
-    </>
-  )
+    <div>
+      {element}
+    </div>
+  );
 }
 
-
 export default App;
-   
