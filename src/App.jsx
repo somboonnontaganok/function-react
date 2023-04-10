@@ -1,43 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-function App() {
-    // adding state here.
-    const [choices,setChoices] = useState();
+// Manual Sync
+const App = () => {
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [position, setPosition] = useState("");
 
-
-  const handleClick = (value) => {
-    // code here.
-    setChoices(value);
+  const syncInfo = () => {
+    setName("Poonn");
+    setAge(58);
+    setPosition("Learner");
   };
 
   return (
     <div>
-      <button onClick={() => handleClick('Fullname')}>Fullname</button>
-      <button onClick={() => handleClick('Age')}>Age</button>
-      <button onClick={() => handleClick('Picture')}>Picture</button>
-      <DisplayInfo choices={choices} />
+      <h3>Name: {name}</h3>
+      <h3>Age: {age}</h3>
+      <h3>Position: {position}</h3>
+      <button onClick={() => {syncInfo()}}>Sync Info</button>
     </div>
   );
-}
-
-function DisplayInfo(props) {
-
-  let element;
-  if (props.choices === 'Fullname') {
-    element = <h2>John Doe</h2>;
-  } else if (props.choices === 'Age') {
-    element = <h2>30</h2>;
-  } else if (props.choices === 'Picture') {
-    element = <img src="https://via.placeholder.com/150" alt="Placeholder" />;
-  } else {
-    element = <p>Please select an option.</p>;
-  }
-
-  return (
-    <div>
-      {element}
-    </div>
-  );
-}
+};
 
 export default App;
