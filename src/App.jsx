@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 
-// Manual Sync
 const App = () => {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [position, setPosition] = useState("");
+  const [rate, setRate] = useState(0);
+  const [exchange, setExchange] = useState(1);
 
-  const syncInfo = () => {
-    setName("Poonn");
-    setAge(58);
-    setPosition("Learner");
+  const syncRate = () => {
+    setRate(30);
+  };
+
+  const handleExchangeChange = (event) => {
+    const newExchange = event.target.value;
+    setExchange(newExchange);
   };
 
   return (
     <div>
-      <h3>Name: {name}</h3>
-      <h3>Age: {age}</h3>
-      <h3>Position: {position}</h3>
-      <button onClick={() => {syncInfo()}}>Sync Info</button>
+      <h1>Current Rate: {rate}</h1>
+      <button onClick={syncRate}>Sync Rate</button>
+      <input type="number" value={exchange} onChange={handleExchangeChange} />
+      <h2>Calculated Exchange: {exchange * rate}</h2>
     </div>
   );
 };
